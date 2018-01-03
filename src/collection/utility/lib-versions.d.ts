@@ -1,0 +1,22 @@
+export declare const angularCliVersion = "file:.angular_cli.tgz";
+export declare const angularVersion = "5.1.0";
+export declare const angularJsVersion = "1.6.6";
+export declare const ngrxVersion = "4.1.1";
+export declare const nxVersion = "*";
+export declare const schematicsVersion = "*";
+export declare const latestMigration = "20180103-update-command-line-scripts";
+export declare const prettierVersion = "^1.9.0";
+export declare const typescriptVersion = "2.5.3";
+export declare const rxjsVersion = "^5.5.2";
+export declare const libVersions: {
+    angularVersion: string;
+    angularCliVersion: string;
+    angularJsVersion: string;
+    ngrxVersion: string;
+    nxVersion: string;
+    schematicsVersion: string;
+    prettierVersion: string;
+    latestMigration: string;
+    typescriptVersion: string;
+    rxjsVersion: string;
+};

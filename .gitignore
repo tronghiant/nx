@@ -1,0 +1,8 @@
+node_modules
+.idea
+dist
+build
+.DS_Store
+tmp
+bin
+migrations
