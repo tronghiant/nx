@@ -1,3 +1,6 @@
+import { EntityState, createEntityAdapter } from '@ngrx/entity';
+import { createFeatureSelector } from '@ngrx/store';
+
 import { <%= propertyName %>Reducer } from './<%= fileName %>.reducer';
 import { <%= propertyName %>InitialState } from './<%= fileName %>.init';
 import { <%= className %> } from './<%= fileName %>.interfaces';
