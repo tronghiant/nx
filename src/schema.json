@@ -371,6 +371,11 @@
               "description": "Specifies the change detection strategy.",
               "enum": ["Default", "OnPush"],
               "type": "string"
+            },
+            "scssImports": {
+              "type": "string",
+              "default": "123",
+              "description": "Specifies if declaring module exports the component."
             }
           }
         },
