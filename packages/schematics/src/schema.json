@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "https://github.com/nrwl/nx/blob/master/packages/schematics/src/schema.json",
+  "id": "https://github.com/tronghiant/nx/blob/master/packages/schematics/src/schema.json",
   "title": "Nrwl Nx Config Schema",
   "type": "object",
   "properties": {

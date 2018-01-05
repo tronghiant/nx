@@ -22,6 +22,7 @@
   "exclude": [
     "tmp",
     "node_modules",
+    "packages/schematics/src/collection/component/files/**/*",
     "packages/schematics/src/*/files/**/*"
   ],
   "angularCompilerOptions": {
