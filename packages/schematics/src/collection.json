@@ -50,8 +50,10 @@
     },
 
     "component": {
-      "aliases": [ "c" ],
-      "extends": "@schematics/angular:component"
+      "aliases": ["c"],
+      "factory": "./collection/component",
+      "description": "Create an Angular component.",
+      "schema": "./collection/component/schema.json"
     },
 
     "directive": {
