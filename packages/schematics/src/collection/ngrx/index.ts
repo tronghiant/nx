@@ -107,22 +107,17 @@ function addNgRxToPackageJson() {
 
     const sourceText = host.read('package.json')!.toString('utf-8');
     const json = JSON.parse(sourceText);
-    if (!json['dependencies']) {
-      json['dependencies'] = {};
-    }
 
-    if (!json['dependencies']['@ngrx/store']) {
-      json['dependencies']['@ngrx/store'] = ngrxVersion;
-    }
-    if (!json['dependencies']['@ngrx/router-store']) {
-      json['dependencies']['@ngrx/router-store'] = ngrxVersion;
-    }
-    if (!json['dependencies']['@ngrx/effects']) {
-      json['dependencies']['@ngrx/effects'] = ngrxVersion;
-    }
-    if (!json['dependencies']['@ngrx/store-devtools']) {
-      json['dependencies']['@ngrx/store-devtools'] = ngrxVersion;
-    }
+    const reduce = (acc, dep) => {
+      acc[`@ngrx/${dep}`] = ngrxVersion;
+      return acc;
+    };
+
+    ['store', 'router-store', 'effects', 'entity']
+      .reduce(reduce, json['dependencies'] ? json['dependencies']: json['dependencies'] = {});
+    ['store-devtools']
+      .reduce(reduce, json['devDependencies'] ? json['devDependencies'] : json['devDependencies'] = {});
+
     host.overwrite('package.json', serializeJson(json));
     return host;
   };

@@ -2,19 +2,16 @@ import {Injectable} from '@angular/core';
 import {Effect, Actions} from '@ngrx/effects';
 import {DataPersistence} from '@nrwl/nx';
 import {<%= className %>State} from './<%= fileName %>.interfaces';
-import {LoadData, DataLoaded} from './<%= fileName %>.actions';
+import * as fromActions from './<%= fileName %>.actions';
 
 @Injectable()
 export class <%= className %>Effects {
-  @Effect() loadData = this.dataPersistence.fetch('LOAD_DATA', {
-    run: (action: LoadData, state: <%= className %>State) => {
-      return {
-        type: 'DATA_LOADED',
-        payload: {}
-      };
+  @Effect() load = this.dataPersistence.fetch(fromActions.LOAD, {
+    run: (action: fromActions.Load, state: <%= className %>State) => {
+      return new fromActions.Loaded([]);
     },
 
-    onError: (action: LoadData, error) => {
+    onError: (action: fromActions.Load, error) => {
       console.error('Error', error);
     }
   });
