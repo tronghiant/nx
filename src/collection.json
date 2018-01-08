@@ -50,7 +50,7 @@
     },
 
     "component": {
-      "aliases": ["c"],
+      "aliases": [ "c" ],
       "factory": "./collection/component",
       "description": "Create an Angular component.",
       "schema": "./collection/component/schema.json"

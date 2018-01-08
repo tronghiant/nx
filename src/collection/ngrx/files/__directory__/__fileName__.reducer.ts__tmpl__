@@ -1,13 +1,24 @@
 import {<%= className %>} from './<%= fileName %>.interfaces';
-import {<%= className %>Action} from './<%= fileName %>.actions';
+import * as actions from './<%= fileName %>.actions';
 
-export function <%= propertyName %>Reducer(state: <%= className %>, action: <%= className %>Action): <%= className %> {
+export function <%= propertyName %>Reducer(state: <%= className %>, action: actions.<%= className %>Action): <%= className %> {
   switch (action.type) {
-    case 'DATA_LOADED': {
-      return {...state, ...action.payload};
-    }
-    default: {
+    case actions.LOAD:
+      // implement LOAD logic here and return new state
+      // return newState;
+    case actions.LOADED:
+      // implement LOADED logic here and return new state
+      // return newState;
+    case actions.CREATE:
+      // implement CREATE logic here and return new state
+      // return newState;
+    case actions.UPDATE:
+      // implement UPDATE logic here and return new state
+      // return newState;
+    case actions.DELETE:
+      // implement DELETE logic here and return new state
+      // return newState;
+    default:
       return state;
-    }
   }
 }

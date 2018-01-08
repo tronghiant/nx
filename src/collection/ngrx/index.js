@@ -71,21 +71,14 @@ function addNgRxToPackageJson() {
             return host;
         var sourceText = host.read('package.json').toString('utf-8');
         var json = JSON.parse(sourceText);
-        if (!json['dependencies']) {
-            json['dependencies'] = {};
-        }
-        if (!json['dependencies']['@ngrx/store']) {
-            json['dependencies']['@ngrx/store'] = lib_versions_1.ngrxVersion;
-        }
-        if (!json['dependencies']['@ngrx/router-store']) {
-            json['dependencies']['@ngrx/router-store'] = lib_versions_1.ngrxVersion;
-        }
-        if (!json['dependencies']['@ngrx/effects']) {
-            json['dependencies']['@ngrx/effects'] = lib_versions_1.ngrxVersion;
-        }
-        if (!json['dependencies']['@ngrx/store-devtools']) {
-            json['dependencies']['@ngrx/store-devtools'] = lib_versions_1.ngrxVersion;
-        }
+        var reduce = function (acc, dep) {
+            acc["@ngrx/" + dep] = lib_versions_1.ngrxVersion;
+            return acc;
+        };
+        ['store', 'router-store', 'effects', 'entity']
+            .reduce(reduce, json['dependencies'] ? json['dependencies'] : json['dependencies'] = {});
+        ['store-devtools']
+            .reduce(reduce, json['devDependencies'] ? json['devDependencies'] : json['devDependencies'] = {});
         host.overwrite('package.json', fileutils_1.serializeJson(json));
         return host;
     };

@@ -1,15 +1,12 @@
-import { EntityState, createEntityAdapter } from '@ngrx/entity';
-import { createFeatureSelector } from '@ngrx/store';
-
 import { <%= propertyName %>Reducer } from './<%= fileName %>.reducer';
 import { <%= propertyName %>InitialState } from './<%= fileName %>.init';
 import { <%= className %> } from './<%= fileName %>.interfaces';
-import { DataLoaded } from './<%= fileName %>.actions';
+import * as actions from './<%= fileName %>.actions';
 
 describe('<%= propertyName %>Reducer', () => {
   it('should work', () => {
     const state: <%= className %> = {};
-    const action: DataLoaded = {type: 'DATA_LOADED', payload: {}};
+    const action = new actions.Load();
     const actual = <%= propertyName %>Reducer(state, action);
     expect(actual).toEqual({});
   });

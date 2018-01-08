@@ -1,14 +1,36 @@
 import { Action } from '@ngrx/store';
+import { <%= className %> } from './<%= fileName %>.interfaces';
 
-export interface LoadData {
-  type: 'LOAD_DATA';
-  payload: {};
+
+export const LOAD = '[<%= className %>] Load';
+export const LOADED = '[<%= className %>] Loaded';
+export const CREATE = '[<%= className %>] Create';
+export const UPDATE = '[<%= className %>] Update';
+export const DELETE = '[<%= className %>] Delete';
+
+export class Load {
+  readonly type = LOAD;
 }
 
-export interface DataLoaded {
-  type: 'DATA_LOADED';
-  payload: {};
+export class Loaded {
+  readonly type = LOADED;
+  constructor(public <%= propertyName %>s: <%= className %>[]) {}
 }
 
-export type <%= className %>Action = LoadData | DataLoaded;
+export class Create implements Action {
+  readonly type = CREATE;
+  constructor(public <%= propertyName %>: <%= className %>) {}
+}
+
+export class Update implements Action {
+  readonly type = UPDATE;
+  constructor(public id: string, public changes: Partial<<%= className %>>) {}
+}
+
+export class Delete implements Action {
+  readonly type = DELETE;
+  constructor(public id: string) {}
+}
+
+export type <%= className %>Action = Load | Loaded | Create | Update | Delete;
 
